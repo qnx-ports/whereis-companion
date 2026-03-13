@@ -1,6 +1,6 @@
 pkgname=whereis
 pkgver=0
-pkgrel=1
+pkgrel=${pkgrel:-0}
 pkgdesc="$pkgname for QNX"
 url="https://qnx.com"
 arch="all"
@@ -16,6 +16,7 @@ package() {
     install -v -m755 $srcdir/$pkgname "$pkgdir"/usr/bin
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 20ad247514bb3fe450ea151d186bdb3600e415cb478f9dbded5eb888d4b51c51309756629e892ea57147b176d3ebd1d2c11ce7004df07146f6ef8fa23cecdb5f  whereis.c
 "
